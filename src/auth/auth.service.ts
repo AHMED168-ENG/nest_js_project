@@ -16,6 +16,10 @@ export class AuthService {
 
         if(body.password !== userLogin.password) throw new HttpException("هذا الرقم السري غير موجود " , HttpStatus.NOT_FOUND)
 
+        this.jwtService.sign({
+            email : userLogin.email,
+            id : userLogin.id
+        })
 
     }
 
